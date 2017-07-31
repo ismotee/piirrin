@@ -1,0 +1,82 @@
+HOST_OS=Linux
+checking pkg-config libraries:   cairo zlib gstreamer-app-1.0 gstreamer-1.0 gstreamer-video-1.0 gstreamer-base-1.0 libudev freetype2 fontconfig sndfile openal openssl gl glu glew gtk+-3.0 
+Compiling OF library for Release
+make[1]: Entering directory '/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworksCompiled/project'
+HOST_OS=Linux
+checking pkg-config libraries:   cairo zlib gstreamer-app-1.0 gstreamer-1.0 gstreamer-video-1.0 gstreamer-base-1.0 libudev freetype2 fontconfig sndfile openal openssl gl glu glew gtk+-3.0 
+HOST_OS=Linux
+checking pkg-config libraries:   cairo zlib gstreamer-app-1.0 gstreamer-1.0 gstreamer-video-1.0 gstreamer-base-1.0 libudev freetype2 fontconfig sndfile openal openssl gl glu glew gtk+-3.0 
+HOST_OS=Linux
+checking pkg-config libraries:   cairo zlib gstreamer-app-1.0 gstreamer-1.0 gstreamer-video-1.0 gstreamer-base-1.0 libudev freetype2 fontconfig sndfile openal openssl gl glu glew gtk+-3.0 
+Done!
+make[1]: Leaving directory '/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworksCompiled/project'
+
+
+Compiling piirrin for Release
+make[1]: Entering directory '/home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin'
+HOST_OS=Linux
+checking pkg-config libraries:   cairo zlib gstreamer-app-1.0 gstreamer-1.0 gstreamer-video-1.0 gstreamer-base-1.0 libudev freetype2 fontconfig sndfile openal openssl gl glu glew gtk+-3.0 
+cat: obj/linux64/Release/.compiler_flags: No such file or directory
+Compiling /home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/src/GUI.cpp
+g++ -c -O3 -DNDEBUG -march=native -mtune=native -Wall -std=c++14 -DGCC_HAS_REGEX -ftrack-macro-expansion=0 -DOF_USING_GTK -DOF_USING_GTK  -pthread -I/usr/include/gstreamer-1.0 -I/usr/lib/x86_64-linux-gnu/gstreamer-1.0/include -I/usr/include/AL -I/usr/include/libdrm -I/usr/include/gtk-3.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/mirclient -I/usr/include/mircore -I/usr/include/mircookie -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/home/ismo/ohjelmointi/openFrameworks/libs/fmodex/include -I/home/ismo/ohjelmointi/openFrameworks/libs/glfw/include -I/home/ismo/ohjelmointi/openFrameworks/libs/glfw/include/GLFW -I/home/ismo/ohjelmointi/openFrameworks/libs/kiss/include -I/home/ismo/ohjelmointi/openFrameworks/libs/poco/include -I/home/ismo/ohjelmointi/openFrameworks/libs/tess2/include -I/home/ismo/ohjelmointi/openFrameworks/libs/utf8cpp/include -I/home/ismo/ohjelmointi/openFrameworks/libs/utf8cpp/include/utf8 -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/types -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/app -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/3d -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/communication -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/graphics -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/video -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/math -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/utils -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/sound -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/events -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/gl -I/home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/src -I/home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/nbproject -I/home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/nbproject/private -MMD -MP -MF obj/linux64/Release/src/GUI.d -MT obj/linux64/Release/src/GUI.o -o obj/linux64/Release/src/GUI.o -c /home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/src/GUI.cpp
+In file included from /home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/src/GUI.cpp:1:0:
+/home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/src/GUI.h: In constructor ‘textField::textField(int, int, int, int, std::__cxx11::string, int)’:
+/home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/src/GUI.h:58:17: warning: ‘textField::label’ will be initialized after [-Wreorder]
+     std::string label;
+                 ^
+/home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/src/GUI.h:56:9: warning:   ‘int textField::max_l’ [-Wreorder]
+     int max_l;
+         ^
+/home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/src/GUI.cpp:69:1: warning:   when initialized here [-Wreorder]
+ textField::textField(int x_, int y_, int w_, int h_, string text, int max_length) 
+ ^
+In file included from /home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/src/GUI.cpp:1:0:
+/home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/src/GUI.h:56:9: warning: ‘textField::max_l’ will be initialized after [-Wreorder]
+     int max_l;
+         ^
+/home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/src/GUI.h:54:7: warning:   ‘textField::textField_mode_t textField::mode’ [-Wreorder]
+     } mode;
+       ^
+/home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/src/GUI.cpp:69:1: warning:   when initialized here [-Wreorder]
+ textField::textField(int x_, int y_, int w_, int h_, string text, int max_length) 
+ ^
+/home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/src/GUI.cpp: In member function ‘virtual void textField::handleKey(int)’:
+/home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/src/GUI.cpp:95:45: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+             if(max_l!=0 && content.length() >= max_l)
+                                             ^
+In file included from /home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/src/GUI.cpp:1:0:
+/home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/src/GUI.h: In constructor ‘console::console(int, int, int, int)’:
+/home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/src/GUI.h:73:9: warning: ‘console::max_length’ will be initialized after [-Wreorder]
+     int max_length; 
+         ^
+/home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/src/GUI.h:72:9: warning:   ‘int console::rows’ [-Wreorder]
+     int rows; //leveys ja korkeus merkkeinä
+         ^
+/home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/src/GUI.cpp:112:1: warning:   when initialized here [-Wreorder]
+ console::console(int x_, int y_, int max_length_, int rows_) 
+ ^
+/home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/src/GUI.cpp: In member function ‘virtual void console::draw(int, int)’:
+/home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/src/GUI.cpp:126:19: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for(int i=0; i< contents.size(); i++) {
+                   ^
+/home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/src/GUI.cpp:128:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         if(str.length() > max_length) str.resize(max_length);
+                         ^
+/home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/src/GUI.cpp: In member function ‘void console::add(const string&)’:
+/home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/src/GUI.cpp:137:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     while(contents.size() > rows)
+                           ^
+Compiling /home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/src/main.cpp
+g++ -c -O3 -DNDEBUG -march=native -mtune=native -Wall -std=c++14 -DGCC_HAS_REGEX -ftrack-macro-expansion=0 -DOF_USING_GTK -DOF_USING_GTK  -pthread -I/usr/include/gstreamer-1.0 -I/usr/lib/x86_64-linux-gnu/gstreamer-1.0/include -I/usr/include/AL -I/usr/include/libdrm -I/usr/include/gtk-3.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/mirclient -I/usr/include/mircore -I/usr/include/mircookie -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/home/ismo/ohjelmointi/openFrameworks/libs/fmodex/include -I/home/ismo/ohjelmointi/openFrameworks/libs/glfw/include -I/home/ismo/ohjelmointi/openFrameworks/libs/glfw/include/GLFW -I/home/ismo/ohjelmointi/openFrameworks/libs/kiss/include -I/home/ismo/ohjelmointi/openFrameworks/libs/poco/include -I/home/ismo/ohjelmointi/openFrameworks/libs/tess2/include -I/home/ismo/ohjelmointi/openFrameworks/libs/utf8cpp/include -I/home/ismo/ohjelmointi/openFrameworks/libs/utf8cpp/include/utf8 -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/types -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/app -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/3d -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/communication -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/graphics -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/video -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/math -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/utils -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/sound -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/events -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/gl -I/home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/src -I/home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/nbproject -I/home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/nbproject/private -MMD -MP -MF obj/linux64/Release/src/main.d -MT obj/linux64/Release/src/main.o -o obj/linux64/Release/src/main.o -c /home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/src/main.cpp
+Compiling /home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/src/Hidpen.cpp
+g++ -c -O3 -DNDEBUG -march=native -mtune=native -Wall -std=c++14 -DGCC_HAS_REGEX -ftrack-macro-expansion=0 -DOF_USING_GTK -DOF_USING_GTK  -pthread -I/usr/include/gstreamer-1.0 -I/usr/lib/x86_64-linux-gnu/gstreamer-1.0/include -I/usr/include/AL -I/usr/include/libdrm -I/usr/include/gtk-3.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/mirclient -I/usr/include/mircore -I/usr/include/mircookie -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/home/ismo/ohjelmointi/openFrameworks/libs/fmodex/include -I/home/ismo/ohjelmointi/openFrameworks/libs/glfw/include -I/home/ismo/ohjelmointi/openFrameworks/libs/glfw/include/GLFW -I/home/ismo/ohjelmointi/openFrameworks/libs/kiss/include -I/home/ismo/ohjelmointi/openFrameworks/libs/poco/include -I/home/ismo/ohjelmointi/openFrameworks/libs/tess2/include -I/home/ismo/ohjelmointi/openFrameworks/libs/utf8cpp/include -I/home/ismo/ohjelmointi/openFrameworks/libs/utf8cpp/include/utf8 -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/types -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/app -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/3d -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/communication -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/graphics -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/video -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/math -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/utils -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/sound -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/events -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/gl -I/home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/src -I/home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/nbproject -I/home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/nbproject/private -MMD -MP -MF obj/linux64/Release/src/Hidpen.d -MT obj/linux64/Release/src/Hidpen.o -o obj/linux64/Release/src/Hidpen.o -c /home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/src/Hidpen.cpp
+Compiling /home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/src/OscInterface.cpp
+g++ -c -O3 -DNDEBUG -march=native -mtune=native -Wall -std=c++14 -DGCC_HAS_REGEX -ftrack-macro-expansion=0 -DOF_USING_GTK -DOF_USING_GTK  -pthread -I/usr/include/gstreamer-1.0 -I/usr/lib/x86_64-linux-gnu/gstreamer-1.0/include -I/usr/include/AL -I/usr/include/libdrm -I/usr/include/gtk-3.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/mirclient -I/usr/include/mircore -I/usr/include/mircookie -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng12 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/home/ismo/ohjelmointi/openFrameworks/libs/fmodex/include -I/home/ismo/ohjelmointi/openFrameworks/libs/glfw/include -I/home/ismo/ohjelmointi/openFrameworks/libs/glfw/include/GLFW -I/home/ismo/ohjelmointi/openFrameworks/libs/kiss/include -I/home/ismo/ohjelmointi/openFrameworks/libs/poco/include -I/home/ismo/ohjelmointi/openFrameworks/libs/tess2/include -I/home/ismo/ohjelmointi/openFrameworks/libs/utf8cpp/include -I/home/ismo/ohjelmointi/openFrameworks/libs/utf8cpp/include/utf8 -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/types -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/app -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/3d -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/communication -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/graphics -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/video -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/math -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/utils -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/sound -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/events -I/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworks/gl -I/home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/src -I/home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/nbproject -I/home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/nbproject/private -MMD -MP -MF obj/linux64/Release/src/OscInterface.d -MT obj/linux64/Release/src/OscInterface.o -o obj/linux64/Release/src/OscInterface.o -c /home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/src/OscInterface.cpp
+In file included from /home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/src/OscInterface.cpp:1:0:
+/home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin/src/OscInterface.h:3:20: fatal error: ofxOsc.h: No such file or directory
+compilation terminated.
+/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworksCompiled/project/makefileCommon/compile.project.mk:200: recipe for target 'obj/linux64/Release/src/OscInterface.o' failed
+make[1]: *** [obj/linux64/Release/src/OscInterface.o] Error 1
+make[1]: Leaving directory '/home/ismo/ohjelmointi/openFrameworks/apps/olento/piirrin'
+/home/ismo/ohjelmointi/openFrameworks/libs/openFrameworksCompiled/project/makefileCommon/compile.project.mk:125: recipe for target 'Release' failed
+make: *** [Release] Error 2
