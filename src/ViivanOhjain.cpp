@@ -16,7 +16,7 @@ void ViivanOhjain::loop() {
             lisaaPiste(Hiiri::mouseState, hidpen::pressure);
         } else {
             // 1 menee joka tapauksessa nollaan ennen pitkaa
-            lisaaPiste(Hiiri::mouseState, 1);
+            lisaaPiste(Hiiri::mouseState, mouseState.z);
         }
     } else
         tyhjenna();
