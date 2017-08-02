@@ -22,11 +22,7 @@ void ViivanOhjain::loop() {
         tyhjenna();
 }
 
-Viiva ViivanOhjain::haeViiva() {
-    
-    std::cout << ofToString(Hiiri::mouseState) << "\n";
-    
-    // pakko kopioida, ettei mene threadit vaaraan kurkkuun
+Viiva ViivanOhjain::haeViiva() {    
     return viiva;
 }
 
