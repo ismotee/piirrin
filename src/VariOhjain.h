@@ -5,11 +5,13 @@
 struct VariOhjain {
     ofColor vari;
     ViivanTulkinnat uusimmatTulkinnat;
+    float hue, saturation, brightness;
     
+    void setup();
     
-    void updateColor(ViivanTulkinnat& tulkinnat);
-    void updateHue();
-    void updateSaturation();
-    void updateBrightness();
-    
+    void laskeVari(Viiva& viiva);
+    void laskeHue(Viiva& viiva);
+    void laskeSaturation(Viiva& viiva);
+    void laskeBrightness(Viiva& viiva);
+    ofColor haeVari();
 };

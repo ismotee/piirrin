@@ -3,7 +3,7 @@
 void ViivanOhjain::setup(int viivaKesken) {
     Sessio::setup(viivaKesken);
     //timedThread::setup(120);
-    hidpen::setup(0);
+    hidpen::setup(10);
 }
 
 void ViivanOhjain::loop() {
@@ -41,7 +41,10 @@ void ViivanOhjain::tyhjenna() {
 }
 
 void ViivanOhjain::tulkitseUusinPiste() {
-    viiva.haeUusinPiste().tulkinnat.kiihtyvyys += (viiva.haeUusinPiste().hetkellisetOminaisuudet.nopeus - viiva.haeUusinPiste().yleisetOminaisuudet.nopeus)*0.01;
+    if(viiva.pisteet.size() > 1) {
+     viiva.haeUusinPiste().tulkinnat = viiva.pisteet[viiva.pisteet.size()- 2].tulkinnat;   
+    }
+    viiva.haeUusinPiste().tulkinnat.kiihtyvyys += (viiva.haeUusinPiste().hetkellisetOminaisuudet.nopeus - viiva.haeUusinPiste().yleisetOminaisuudet.nopeus) * 0.01;
     viiva.haeUusinPiste().tulkinnat.kohoavuus -= sin(viiva.haeUusinPiste().yleisetOminaisuudet.suunta.y)*0.001;
     viiva.haeUusinPiste().tulkinnat.vahvuus = (viiva.haeUusinPiste().yleisetOminaisuudet.paine - viiva.haeUusinPiste().hetkellisetOminaisuudet.paine) -
             (viiva.haeUusinPiste().yleisetOminaisuudet.nopeus - viiva.haeUusinPiste().hetkellisetOminaisuudet.nopeus);
@@ -66,8 +69,9 @@ void ViivanOhjain::laskeUusinPiste() {
     // paivita yleiset ominaisuudet
     if (viiva.pisteet.size() == 2) {
         viiva.haeUusinPiste().yleisetOminaisuudet = viiva.haeUusinPiste().hetkellisetOminaisuudet;
-    } else {
-        viiva.haeUusinPiste().yleisetOminaisuudet.muutaOminaisuuksia(viiva.haeUusinPiste().hetkellisetOminaisuudet, 0.0005);
+    } else if(viiva.pisteet.size() > 2){
+        viiva.haeUusinPiste().yleisetOminaisuudet = viiva.pisteet[viiva.pisteet.size() - 2].yleisetOminaisuudet;
+        viiva.haeUusinPiste().yleisetOminaisuudet.muutaOminaisuuksia(viiva.haeUusinPiste().hetkellisetOminaisuudet, 0.001);
     }
 
 }

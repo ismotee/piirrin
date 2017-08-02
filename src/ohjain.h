@@ -2,17 +2,15 @@
 
 #include "ofMain.h"
 #include "OscInterface.h"
-#include "hidpen.h"
-#include "Hiiri.h"
 #include "GUI.h"
-#include "Sessio.h"
-#include "timedThread.h"
 #include "ViivanOhjain.h"
+#include "VariOhjain.h"
 
-struct Ohjain: public OscInterface, public ViivanOhjain {
+struct Ohjain: public OscInterface, public ViivanOhjain, public VariOhjain {
     GUI gui;
 
     Viiva uusinViiva;
+    ofColor uusinVari;
     
     void setup();
     void update();

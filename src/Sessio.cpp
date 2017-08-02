@@ -8,7 +8,7 @@ void Sessio::setup(int viivaKeskenCount_) {
 void Sessio::update(int nappi) // valitaan moodi joka kierroksella
 {
 
-    if (nappi) {
+    if (nappi == 1) {
         moodi = piirtaa;
         updateCount = 0;
     } else {
