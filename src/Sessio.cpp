@@ -5,10 +5,10 @@ void Sessio::setup(int viivaKeskenCount_) {
     updateCount = 0;
 }
 
-void Sessio::update() // valitaan moodi joka kierroksella
+void Sessio::update(int nappi) // valitaan moodi joka kierroksella
 {
 
-    if (hiiri.mouseState.z) {
+    if (nappi) {
         moodi = piirtaa;
         updateCount = 0;
     } else {

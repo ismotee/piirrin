@@ -9,19 +9,18 @@
 #include "timedThread.h"
 #include "ViivanOhjain.h"
 
-struct Ohjain: public OscInterface, public Sessio, public timedThread {
+struct Ohjain: public OscInterface, public ViivanOhjain {
     GUI gui;
-    ViivanOhjain vOhjain;
-    
+
+    Viiva uusinViiva;
     
     void setup();
     void update();
-    void loop();
+    //void loop();
     void draw();
     void keyPressed(int key);
     
     void mousePressed(int x, int y);
-    
 };
 
 

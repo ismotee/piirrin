@@ -1,19 +1,18 @@
 #include "ohjain.h"
 
 void Ohjain::setup() {
-    hidpen::setup(0);
     gui.setup();
-    Sessio::setup(300);
-    timedThread::setup(120);
-
+    ViivanOhjain::setup(300);
 }
 
 void Ohjain::update() {
-    Sessio::update();
+    ViivanOhjain::loop();
 
-//    if (Sessio::moodi == piirtaa)
-//        vOhjain.lisaaPiste(hiiri.mouseState, 1);
+    
+    uusinViiva = ViivanOhjain::haeViiva();
+    
 
+    //Guin updaten vois pakata natimminkin.
     GUI_info_T info = gui.getInfo();
     if (info.connecting) {
         gui.print("connecting to " + info.ip + " @ " + ofToString(info.senderPort) + "," + ofToString(info.receiverPort) + "...");
@@ -33,25 +32,10 @@ void Ohjain::update() {
     }
 }
 
-void Ohjain::loop() {
-    hidpen::update();
-    switch (Sessio::moodi) {
-        case piirtaa:
-            if (hidpen::isOpen)
-                vOhjain.lisaaPiste(hiiri.mouseState, (0.25 - hidpen::pressure)*4);
-            else
-                vOhjain.lisaaPiste(hiiri.mouseState, 1);
-            break;
-        case viivaValmis:
-            vOhjain.tyhjenna();
-            break;
-    }
-}
-
 void Ohjain::draw() {
     gui.draw();
     if (Sessio::moodi == piirtaa) {
-        ofDrawBitmapString(vOhjain.viiva.toString(), 20, 30);
+        ofDrawBitmapString(uusinViiva.toString(), 20, 30);
     }
 
 }
@@ -64,7 +48,7 @@ void Ohjain::mousePressed(int x, int y) {
     if (gui.show)
         gui.handleClick(x, y);
     else {
-        hiiri.mousePressed(x, y);
+        ViivanOhjain::mousePressed(x, y);
     }
 }
 

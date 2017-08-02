@@ -20,12 +20,11 @@ struct Hiiri {
 class Sessio {
 public:
 
-    Hiiri hiiri;
     int updateCount,viivaKeskenCount;
     
     
     void setup(int viivaKeskenCount_);
-    void update();
+    void update(int nappi);
     
     Moodi moodi;
     

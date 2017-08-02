@@ -28,13 +28,13 @@ void ofApp::keyReleased(int key){
 
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y){
-    Ohjain::hiiri.mouseMoved(x,y);
+    Ohjain::mouseMoved(x,y);
 
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button){
-    Ohjain::hiiri.mouseDragged(x,y);
+    Ohjain::mouseDragged(x,y);
 }
 
 //--------------------------------------------------------------
@@ -44,7 +44,7 @@ void ofApp::mousePressed(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
-    Ohjain::hiiri.mouseReleased(x,y);
+    Ohjain::mouseReleased(x,y);
 }
 
 //--------------------------------------------------------------

@@ -7,15 +7,20 @@ static float SigmoidFunction(float value) {
 
 }
 
+
 struct ViivanTulkinnat {
     float kiihtyvyys;
     float vahvuus;
     float kohoavuus;
     ofPoint paino;
 
+    ViivanTulkinnat():kiihtyvyys(0),vahvuus(0),kohoavuus(0.5),paino(ofPoint()) {}
     void muutaTulkintaa(const ViivanTulkinnat& tulkinnat, float maara);
-    std::string toString() {return ofToString(kiihtyvyys) +  " " + ofToString(kohoavuus) + " " + ofToString(vahvuus) + " " + ofToString(paino);}
-    
+
+    std::string toString() {
+        return ofToString(kiihtyvyys) + " " + ofToString(kohoavuus) + " " + ofToString(vahvuus) + " " + ofToString(paino);
+    }
+
 private:
     void muutaTulkinta(float& tulkinta, float suunta, float maara);
 };
@@ -25,49 +30,46 @@ struct ViivanOminaisuudet {
     ofVec3f suunta;
     float paine;
 
+    
+    ViivanOminaisuudet():nopeus(0),suunta(ofVec3f()),paine(0) {}
     void muutaOminaisuuksia(const ViivanOminaisuudet& ominaisuudet, float maara);
-    std::string toString(){return ofToString(nopeus) + " " + ofToString(suunta) + " " + ofToString(paine);}
+
+    std::string toString() {
+        return ofToString(nopeus) + " " + ofToString(suunta) + " " + ofToString(paine);
+    }
 private:
     void muutaOminaisuus(float& ominaisuus, float suunta, float maara);
+
+};
+struct ViivanPiste {
+    ofPoint piste;
+    float paine;
+
+    ViivanOminaisuudet yleisetOminaisuudet;
+    ViivanOminaisuudet hetkellisetOminaisuudet;
+    ViivanTulkinnat tulkinnat;
+    
+    ViivanPiste():piste(ofPoint()),paine(0),yleisetOminaisuudet(ViivanOminaisuudet()),hetkellisetOminaisuudet(ViivanOminaisuudet()),tulkinnat(ViivanTulkinnat()){}
 
 };
 
 struct Viiva {
     /* pisteet:
+
+     * piste:
      * x -> hiiren x
      * y -> hiiren y
      * z -> hiiren nappi 1 alaspainettu 0 ylhaalla
      * paine -> piirtopoydan paine
      */
 
-    std::vector<ofPoint> pisteet;
-    std::vector<float> paineet;
+    std::vector<ViivanPiste> pisteet;
 
-    ViivanOminaisuudet yleisetOminaisuudet;
-    ViivanOminaisuudet hetkellisetOminaisuudet;
-    ViivanTulkinnat tulkinnat;
-
-    void tulkitse();
-    void laske();
-
-
+    void lisaaPiste(ofVec3f piste, float paine);
+    ViivanPiste& haeUusinPiste();
     void asetaYleisetOminaisuudet(const ViivanOminaisuudet& ominaisuudet);
-
-
-    void lisaaPiste(ofPoint piste, float paine);
-
-    float laskeKeskinopeus(int otanta);
-    float laskeKeskipaine(int otanta);
-    
     std::string toString();
 
-    float bound(float val, float min, float max) {
-        if (val > max)
-            return max;
-        else if (val < min)
-            return min;
-        return val;
-    }
 
 };
 
