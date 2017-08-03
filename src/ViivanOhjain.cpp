@@ -4,25 +4,39 @@ void ViivanOhjain::setup(int viivaKesken) {
     Sessio::setup(viivaKesken);
     //timedThread::setup(120);
     hidpen::setup(0);
+    Nauhuri.setup("arkisto/");
 }
 
 void ViivanOhjain::loop() {
-
+    
     Sessio::update(Hiiri::mouseState.z);
 
-
-    if (Sessio::moodi == piirtaa) {
+    // piirtaa moodi on riippumaton OhjainTilasta. Inputtia ei voi sulkea
+    if (moodi == piirtaa) {
         if (hidpen::isOpen) {
             lisaaPiste(Hiiri::mouseState, hidpen::pressure);
         } else {
-            // 1 menee joka tapauksessa nollaan ennen pitkaa
             lisaaPiste(Hiiri::mouseState, mouseState.z);
         }
     }
+    
+    // Viiva jatetaan tallentamatta jos tila on vapaa. valmistelun tarvii joka tapauksessa tyhjentaa Viiva, jotta voidaan tehda jotain uutta
     if (moodi == valmistelee) {
-        tiedosto::tallennaViivaCopy(viiva);
-
+        if (tila == tallentaa || tila == soittaa) {
+            Nauhuri::tallenna(viiva);
+            
+        }
         tyhjenna();
+        
+        // en tieda pitaisiko soittimen ottaa seuraava vai viimeisin, vai edellinen??
+        if(tila == soittaa)
+            Nauhuri::seuraava();
+    }
+    
+    if(moodi == viivaValmis && tila == soittaa) {
+        if(Nauhuri::uusiViiva)
+            tyhjenna();
+        viiva.pisteet.push_back(Nauhuri::soita());
     }
 }
 

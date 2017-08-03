@@ -4,8 +4,7 @@
 
 namespace tiedosto {
   
-    Viiva lataaViiva(std::string tiedostonNimi);
-    void tallennaViiva(Viiva viiva);
-    void tallennaViivaCopy(Viiva viiva);
+    Viiva lataaViiva(std::string tiedostonNimi, std::string polku);
+    void tallennaViiva(Viiva viiva, std::string polku);
     std::string aika();
 };

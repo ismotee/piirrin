@@ -5,12 +5,15 @@
 #include "Sessio.h"
 #include "timedThread.h"
 #include "ViivanOhjain.h"
-#include "tiedosto.h"
+#include "Nauhuri.h"
 
-struct ViivanOhjain: public Sessio, public Hiiri {
+enum OhjainTila {vapaa,tallentaa,soittaa};
+
+struct ViivanOhjain: public Sessio, public Hiiri, public Nauhuri {
     Viiva viiva;
     std::string viivaStr;
-
+    OhjainTila tila;
+    
     void setup(int viivaKesken);
     void loop();
     

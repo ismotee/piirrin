@@ -6,8 +6,10 @@
 #include "ViivanOhjain.h"
 #include "VariOhjain.h"
 
+
 struct Ohjain: public OscInterface, public ViivanOhjain, public VariOhjain {
     GUI gui;
+    OhjainTila tila;
 
     Viiva uusinViiva;
     ofColor uusinVari;

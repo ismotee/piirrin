@@ -32,15 +32,6 @@ Viiva tiedosto::lataaViiva(std::string tiedostonNimi) {
     return viiva;
 }
 
-void tiedosto::tallennaViiva(Viiva viiva) {
-
-    ofstream os;
-    os.open("arkisto/" + aika() + ".ov");
-
-    os << viiva.toString();
-    os.close();
-
-}
 
 std::string tiedosto::aika() {
     std::chrono::time_point<std::chrono::system_clock> now;
@@ -50,8 +41,8 @@ std::string tiedosto::aika() {
 
 }
 
-void tiedosto::tallennaViivaCopy(Viiva viiva) {
-    std::string file = "arkisto/" + aika() + ".ov";
+void tiedosto::tallennaViiva(Viiva viiva, std::string polku) {
+    std::string file = polku + aika() + ".ov";
     std::ofstream os(file, ios::binary);
     for (ViivanPiste& piste : viiva.pisteet) {
 
@@ -59,8 +50,6 @@ void tiedosto::tallennaViivaCopy(Viiva viiva) {
         buffer = (char*) &piste;
         os.write((char*) buffer, sizeof (ViivanPiste));
     }
-    cout << "tallennetaan " << viiva.pisteet.size() << " pistetta\n";
     os.close();
-    lataaViiva(file);
 }
 
