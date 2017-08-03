@@ -3,7 +3,7 @@
 void ViivanOhjain::setup(int viivaKesken) {
     Sessio::setup(viivaKesken);
     //timedThread::setup(120);
-    hidpen::setup(10);
+    hidpen::setup(0);
 }
 
 void ViivanOhjain::loop() {
@@ -18,14 +18,17 @@ void ViivanOhjain::loop() {
             // 1 menee joka tapauksessa nollaan ennen pitkaa
             lisaaPiste(Hiiri::mouseState, mouseState.z);
         }
-    } else
+    }
+    if (moodi == valmistelee) {
+        tiedosto::tallennaViivaCopy(viiva);
+
         tyhjenna();
+    }
 }
 
-Viiva ViivanOhjain::haeViiva() {    
+Viiva ViivanOhjain::haeViiva() {
     return viiva;
 }
-
 
 void ViivanOhjain::lisaaPiste(ofPoint piste, float paine) {
     //tehdään eka piste viivaan koska laskeUusinPiste ja tulkitseUusinPiste muokkaa viimeisintä pistettä 
@@ -41,8 +44,8 @@ void ViivanOhjain::tyhjenna() {
 }
 
 void ViivanOhjain::tulkitseUusinPiste() {
-    if(viiva.pisteet.size() > 1) {
-     viiva.haeUusinPiste().tulkinnat = viiva.pisteet[viiva.pisteet.size()- 2].tulkinnat;   
+    if (viiva.pisteet.size() > 1) {
+        viiva.haeUusinPiste().tulkinnat = viiva.pisteet[viiva.pisteet.size() - 2].tulkinnat;
     }
     viiva.haeUusinPiste().tulkinnat.kiihtyvyys += (viiva.haeUusinPiste().hetkellisetOminaisuudet.nopeus - viiva.haeUusinPiste().yleisetOminaisuudet.nopeus) * 0.01;
     viiva.haeUusinPiste().tulkinnat.kohoavuus -= sin(viiva.haeUusinPiste().yleisetOminaisuudet.suunta.y)*0.001;
@@ -69,7 +72,7 @@ void ViivanOhjain::laskeUusinPiste() {
     // paivita yleiset ominaisuudet
     if (viiva.pisteet.size() == 2) {
         viiva.haeUusinPiste().yleisetOminaisuudet = viiva.haeUusinPiste().hetkellisetOminaisuudet;
-    } else if(viiva.pisteet.size() > 2){
+    } else if (viiva.pisteet.size() > 2) {
         viiva.haeUusinPiste().yleisetOminaisuudet = viiva.pisteet[viiva.pisteet.size() - 2].yleisetOminaisuudet;
         viiva.haeUusinPiste().yleisetOminaisuudet.muutaOminaisuuksia(viiva.haeUusinPiste().hetkellisetOminaisuudet, 0.001);
     }

@@ -13,9 +13,14 @@ void Sessio::update(int nappi) // valitaan moodi joka kierroksella
         updateCount = 0;
     } else {
         updateCount++;
-        if (updateCount > viivaKeskenCount) {
-            moodi = viivaValmis;
-        }
     }
+
+    if (moodi == piirtaa  && updateCount > viivaKeskenCount) {
+        moodi = valmistelee;
+    } else if(moodi == valmistelee) {
+        moodi = viivaValmis;
+        updateCount = 0;
+    }
+
 }
 

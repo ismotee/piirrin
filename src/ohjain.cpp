@@ -39,10 +39,9 @@ void Ohjain::update() {
 void Ohjain::draw() {
     gui.draw();
     ofBackground(uusinVari);
-    if (ViivanOhjain::moodi == piirtaa) {
-        ofSetColor(uusinVari.getInverted());
-        ofDrawBitmapString(uusinViiva.toString(), 20, 30);
-    }
+    ofSetColor(uusinVari.getInverted());
+    ofDrawBitmapString(moodi,20,20);
+    ofDrawBitmapString(ofToString(updateCount),20,40);
 }
 
 void Ohjain::keyPressed(int key) {

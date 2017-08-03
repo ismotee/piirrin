@@ -4,6 +4,8 @@
 #include "hidpen.h"
 #include "Sessio.h"
 #include "timedThread.h"
+#include "ViivanOhjain.h"
+#include "tiedosto.h"
 
 struct ViivanOhjain: public Sessio, public Hiiri {
     Viiva viiva;

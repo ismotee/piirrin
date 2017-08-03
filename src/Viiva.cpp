@@ -41,7 +41,10 @@ void Viiva::lisaaPiste(ofPoint piste, float paine) {
 std::string Viiva::toString() {
     std::string result;
 
-    result += "tulkinnat: " + haeUusinPiste().tulkinnat.toString() + "\nyleiset: " + haeUusinPiste().yleisetOminaisuudet.toString() + "\nhetkelliset: " + haeUusinPiste().hetkellisetOminaisuudet.toString();
+    for(auto& piste : pisteet)
+    
+    
+    result += ofToString(piste.piste) + " " + ofToString(piste.paine) + "\n" + piste.tulkinnat.toString() + "\n" + piste.yleisetOminaisuudet.toString() + "\n" + piste.hetkellisetOminaisuudet.toString() + "\n";
     return result;
 
 }

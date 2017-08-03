@@ -18,7 +18,7 @@ struct ViivanTulkinnat {
     void muutaTulkintaa(const ViivanTulkinnat& tulkinnat, float maara);
 
     std::string toString() {
-        return ofToString(kiihtyvyys) + " " + ofToString(kohoavuus) + " " + ofToString(vahvuus) + " " + ofToString(paino) + "\n";
+        return ofToString(kiihtyvyys) + " " + ofToString(kohoavuus) + " " + ofToString(vahvuus) + " " + ofToString(paino);
     }
 
 private:

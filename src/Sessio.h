@@ -4,7 +4,7 @@
 #include "Hiiri.h"
 
 
-enum Moodi {piirtaa,viivaValmis};
+enum Moodi {piirtaa,valmistelee,viivaValmis};
 
 /*
 struct Hiiri {
