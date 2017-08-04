@@ -14,6 +14,12 @@ void OscInterface::sendFloat(std::string address, float value) {
     }
 }
 
+void OscInterface::sendMessage(ofxOscMessage msg) {
+    if(connection)
+        sender.sendMessage(msg,false);
+}
+
+
 void OscInterface::connect() {
     connection = true;
 }

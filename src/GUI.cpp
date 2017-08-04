@@ -195,7 +195,6 @@ void GUI::handleKey(int key) {
     //for the gui
     if(key == hideKey) {
         show = !show;
-        cout << "hep\n";
     }
 }
 

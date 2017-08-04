@@ -22,6 +22,8 @@ struct Ohjain: public OscInterface, public ViivanOhjain, public VariOhjain, publ
     void keyPressed(int key);
     
     void mousePressed(int x, int y);
+    
+    void teeOscPakettiJaLaheta(Viiva& viiva);
 };
 
 

@@ -6,6 +6,7 @@ void Ohjain::setup() {
     VariOhjain::setup();
     ViivanOhjain::moodi = viivaValmis;
     Monitori::setup();
+    OscInterface::setAddress("127.0.0.1",9997,9998);
 }
 
 void Ohjain::update() {
@@ -28,6 +29,8 @@ void Ohjain::update() {
     Monitori::piirraVari(uusinVari);
     Monitori::piirraViiva(uusinViiva);
 
+    if(connection && !uusinViiva.pisteet.empty())
+        teeOscPakettiJaLaheta(uusinViiva);
 
 
     GUI_info_T info = gui.getInfo();
@@ -47,6 +50,8 @@ void Ohjain::update() {
         } else
             gui.print("not connected");
     }
+    
+    
 
 }
 
@@ -110,3 +115,16 @@ void Ohjain::mousePressed(int x, int y) {
     }
 }
 
+void Ohjain::teeOscPakettiJaLaheta(Viiva& viiva) {
+    ViivanPiste vp = viiva.haeUusinPiste();
+    
+    ofxOscMessage msg;
+    msg.setAddress("/viiva");
+    msg.addFloatArg(vp.tulkinnat.kiihtyvyys);
+    msg.addFloatArg(vp.tulkinnat.kohoavuus);
+    msg.addFloatArg(vp.tulkinnat.vahvuus);
+    msg.addFloatArg(vp.tulkinnat.paino.x);
+    msg.addFloatArg(vp.tulkinnat.paino.y);
+    msg.addFloatArg(vp.tulkinnat.paino.z);
+    OscInterface::sendMessage(msg);
+}
