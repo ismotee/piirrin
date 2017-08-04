@@ -13,6 +13,7 @@ struct ViivanOhjain: public Sessio, public Hiiri, public Nauhuri {
     Viiva viiva;
     std::string viivaStr;
     OhjainTila tila;
+    string kerroTila() {if(tila == vapaa)return "vapaa";if(tila == tallentaa)return "tallentaa";if(tila==soittaa)return "soittaa";}
     
     void setup(int viivaKesken);
     void loop();

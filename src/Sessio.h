@@ -27,7 +27,7 @@ public:
     void update(int nappi);
     
     Moodi moodi;
-    
+    string kerroMoodi(){if(moodi==piirtaa)return "piirtaa";if(moodi==valmistelee)return"valmistelee";if(moodi==viivaValmis)return"viiva valmis";}
     
 private:
 

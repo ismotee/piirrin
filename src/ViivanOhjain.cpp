@@ -5,6 +5,8 @@ void ViivanOhjain::setup(int viivaKesken) {
     //timedThread::setup(120);
     hidpen::setup(0);
     Nauhuri::setup("arkisto/");
+    Nauhuri::lataa();
+    tila = vapaa;
 }
 
 void ViivanOhjain::loop() {
@@ -36,6 +38,7 @@ void ViivanOhjain::loop() {
     if(moodi == viivaValmis && tila == soittaa) {
         if(Nauhuri::uusiViiva)
             tyhjenna();
+
         viiva.pisteet.push_back(Nauhuri::soita());
     }
 }

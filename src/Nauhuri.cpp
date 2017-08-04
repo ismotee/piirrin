@@ -2,6 +2,8 @@
 
 void Nauhuri::setup(std::string polku_) {
     polku = polku_;
+    lukuPaa = 0;
+    viivaId = 0;
 }
 
 void Nauhuri::lataa() {
@@ -11,17 +13,20 @@ void Nauhuri::lataa() {
     db.resize(dir.size());
 
     for (int i = 0; i < dir.size(); i++) {
-        db[i] = tiedosto::lataaViiva(dir.getName(i));
+        cout << dir.getPath(i) << "\n";
+        db[i] = tiedosto::lataaViiva("bin/data/" + dir.getPath(i));
     }
 }
 
 void Nauhuri::tallenna(Viiva viiva) {
-    tiedosto::tallennaViiva(viiva, polku);
+    tiedosto::tallennaViiva(viiva, "bin/data/" + polku);
     lataa();
 }
 
 ViivanPiste Nauhuri::soita() {
+    
     ViivanPiste result;
+    
     if (!db.empty() && !db[viivaId].pisteet.empty()) {
         uusiViiva = false;
         result = db[viivaId].pisteet[(int) lukuPaa];

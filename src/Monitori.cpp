@@ -94,8 +94,24 @@ void Monitori::setup() {
 
 void Monitori::draw() {
     ofClear(taustaVari);
-    if(show)
-        viivaFbo.draw(0,0);
+    
+    ofSetColor(255,255,255, pow(viivanAlfa, 0.7) * 255);
+    viivaFbo.draw(0,0);
+    
+    if(fadeOut && viivanAlfa > 0) {
+        viivanAlfa -= 0.025;
+        if(viivanAlfa <0) {
+            viivanAlfa = 0;
+            fadeOut = false;
+        }
+    }
+    else if(fadeIn && viivanAlfa < 1) {
+        viivanAlfa += 0.015;
+        if(viivanAlfa > 1) {
+            viivanAlfa = 1;
+            fadeIn = false;
+        }
+    }
 }
 
 
@@ -117,7 +133,7 @@ void Monitori::piirraViiva(const Viiva& viiva) {
     
     viivaFbo.begin();
         ofEnableBlendMode(OF_BLENDMODE_ALPHA);
-        pensseli::strokeTo(P.piste);    
+        pensseli::strokeTo(P.piste);
     viivaFbo.end();
 
 }
@@ -135,4 +151,18 @@ void Monitori::tyhjenna() {
         ofClear(pensseli::clearColor);
     viivaFbo.end();
     pensseli::lopetaViiva();
+}
+
+
+void Monitori::paljasta() {
+    fadeOut = false;
+    fadeIn = true;
+    showing = true;
+}
+
+
+void Monitori::piilota() {
+    fadeOut  = true;
+    fadeIn = false;
+    showing = false;
 }

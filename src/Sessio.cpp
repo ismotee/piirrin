@@ -11,7 +11,7 @@ void Sessio::update(int nappi) // valitaan moodi joka kierroksella
     if (nappi == 1) {
         moodi = piirtaa;
         updateCount = 0;
-    } else {
+    } else if(moodi!= viivaValmis){
         updateCount++;
     }
 

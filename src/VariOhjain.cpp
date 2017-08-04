@@ -23,7 +23,7 @@ void VariOhjain::laskeHue(Viiva& viiva) {
         return;
     }
     if (viiva.haeUusinPiste().piste.z == 0)
-        hue += 0.5;
+        hue += 0.3;
 
 
     if (hue > 360)
@@ -35,15 +35,25 @@ void VariOhjain::laskeHue(Viiva& viiva) {
 void VariOhjain::laskeSaturation(Viiva& viiva) {
     if (!viiva.pisteet.empty())
         saturation = viiva.haeUusinPiste().tulkinnat.kiihtyvyys * 255;
+    else
+        saturation += 1;
+    
+    if(saturation > 255)
+        saturation = 255;
+    else if(saturation < 0)
+        saturation = 0;
 }
 
 void VariOhjain::laskeBrightness(Viiva& viiva) {
     //brightness = viiva.haeUusinPiste().tulkinnat.vahvuus;
     if (!viiva.pisteet.empty())
-        if (saturation < 100)
-            brightness -=0.3;
+        if (saturation < 160)
+            brightness -=0.6;
         else
             brightness += 0.9;
+    else
+        brightness += 0.4;
+    
     
     if(brightness > 255)
     brightness = 255;

@@ -9,7 +9,8 @@
 
 
 struct Ohjain: public OscInterface, public ViivanOhjain, public VariOhjain, public Monitori, public GUI {
-    OhjainTila tila;
+    bool showDebug;
+    GUI gui;
 
     Viiva uusinViiva;
     ofColor uusinVari;

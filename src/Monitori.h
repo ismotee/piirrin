@@ -28,7 +28,11 @@ class Monitori : public pensseli {
 public:
     ofColor taustaVari = ofColor::grey;
     ofFbo viivaFbo;
-    bool show = false;
+    
+    float viivanAlfa = 0;
+    bool fadeIn = false;
+    bool fadeOut = false;
+    bool showing = false;
     
     void setup();
     void draw();
@@ -36,4 +40,7 @@ public:
     void piirraViiva(const Viiva&);
     void piirraVari(ofColor vari_);
     void tyhjenna();
+    
+    void paljasta();
+    void piilota();
 };
