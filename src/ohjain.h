@@ -5,10 +5,10 @@
 #include "GUI.h"
 #include "ViivanOhjain.h"
 #include "VariOhjain.h"
+#include "Monitori.h"
 
 
-struct Ohjain: public OscInterface, public ViivanOhjain, public VariOhjain {
-    GUI gui;
+struct Ohjain: public OscInterface, public ViivanOhjain, public VariOhjain, public Monitori, public GUI {
     OhjainTila tila;
 
     Viiva uusinViiva;

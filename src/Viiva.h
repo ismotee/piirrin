@@ -67,6 +67,7 @@ struct Viiva {
 
     void lisaaPiste(ofVec3f piste, float paine);
     ViivanPiste& haeUusinPiste();
+    const ViivanPiste& haeUusinPiste() const;
     void asetaYleisetOminaisuudet(const ViivanOminaisuudet& ominaisuudet);
     std::string toString();
 

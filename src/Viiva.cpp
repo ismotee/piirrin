@@ -53,3 +53,9 @@ ViivanPiste& Viiva::haeUusinPiste() {
     //TODO tyhjän vectorin tsekkaukset
     return pisteet.back();
 }
+
+
+const ViivanPiste& Viiva::haeUusinPiste() const {
+    //TODO tyhjän vectorin tsekkaukset
+    return pisteet.back();
+}

@@ -4,7 +4,7 @@ void ViivanOhjain::setup(int viivaKesken) {
     Sessio::setup(viivaKesken);
     //timedThread::setup(120);
     hidpen::setup(0);
-    Nauhuri.setup("arkisto/");
+    Nauhuri::setup("arkisto/");
 }
 
 void ViivanOhjain::loop() {

@@ -4,6 +4,8 @@
 void ofApp::setup(){
     Ohjain::setup();
     ofBackground(ofColor::black);
+    glEnable(GL_FRAMEBUFFER_SRGB);    
+    
 }
 
 //--------------------------------------------------------------

@@ -18,10 +18,16 @@
         <in>GUI.cpp</in>
         <in>GUI.h</in>
         <in>Hiiri.h</in>
+        <in>Monitori.cpp</in>
+        <in>Monitori.h</in>
+        <in>Nauhuri.cpp</in>
+        <in>Nauhuri.h</in>
         <in>OscInterface.cpp</in>
         <in>OscInterface.h</in>
         <in>Sessio.cpp</in>
         <in>Sessio.h</in>
+        <in>VariOhjain.cpp</in>
+        <in>VariOhjain.h</in>
         <in>Viiva.cpp</in>
         <in>Viiva.h</in>
         <in>ViivanOhjain.cpp</in>
@@ -33,6 +39,8 @@
         <in>ofApp.h</in>
         <in>ohjain.cpp</in>
         <in>ohjain.h</in>
+        <in>tiedosto.cpp</in>
+        <in>tiedosto.h</in>
         <in>timedThread.cpp</in>
         <in>timedThread.h</in>
       </df>

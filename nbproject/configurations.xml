@@ -17,14 +17,17 @@
               <itemPath>../../../addons/ofxOsc/libs/oscpack/src/ip/IpEndpointName.h</itemPath>
               <itemPath>../../../addons/ofxOsc/libs/oscpack/src/ip/NetworkingUtils.h</itemPath>
               <itemPath>../../../addons/ofxOsc/libs/oscpack/src/ip/PacketListener.h</itemPath>
+              <itemPath>../../../addons/ofxOsc/libs/oscpack/src/ip/TimerListener.h</itemPath>
               <itemPath>../../../addons/ofxOsc/libs/oscpack/src/ip/UdpSocket.h</itemPath>
             </logicalFolder>
             <logicalFolder name="osc" displayName="osc" projectFiles="true">
               <itemPath>../../../addons/ofxOsc/libs/oscpack/src/osc/OscException.h</itemPath>
+              <itemPath>../../../addons/ofxOsc/libs/oscpack/src/osc/OscHostEndianness.h</itemPath>
               <itemPath>../../../addons/ofxOsc/libs/oscpack/src/osc/OscOutboundPacketStream.cpp</itemPath>
               <itemPath>../../../addons/ofxOsc/libs/oscpack/src/osc/OscOutboundPacketStream.h</itemPath>
               <itemPath>../../../addons/ofxOsc/libs/oscpack/src/osc/OscPacketListener.h</itemPath>
               <itemPath>../../../addons/ofxOsc/libs/oscpack/src/osc/OscPrintReceivedElements.cpp</itemPath>
+              <itemPath>../../../addons/ofxOsc/libs/oscpack/src/osc/OscPrintReceivedElements.h</itemPath>
               <itemPath>../../../addons/ofxOsc/libs/oscpack/src/osc/OscReceivedElements.cpp</itemPath>
               <itemPath>../../../addons/ofxOsc/libs/oscpack/src/osc/OscReceivedElements.h</itemPath>
               <itemPath>../../../addons/ofxOsc/libs/oscpack/src/osc/OscTypes.cpp</itemPath>
@@ -41,6 +44,7 @@
         <itemPath>../../../addons/ofxOsc/src/ofxOscMessage.cpp</itemPath>
         <itemPath>../../../addons/ofxOsc/src/ofxOscMessage.h</itemPath>
         <itemPath>../../../addons/ofxOsc/src/ofxOscParameterSync.cpp</itemPath>
+        <itemPath>../../../addons/ofxOsc/src/ofxOscParameterSync.h</itemPath>
         <itemPath>../../../addons/ofxOsc/src/ofxOscReceiver.cpp</itemPath>
         <itemPath>../../../addons/ofxOsc/src/ofxOscReceiver.h</itemPath>
         <itemPath>../../../addons/ofxOsc/src/ofxOscSender.cpp</itemPath>
@@ -50,14 +54,18 @@
     <df root="." name="0">
       <df name="src">
         <in>GUI.cpp</in>
+        <in>Monitori.cpp</in>
+        <in>Nauhuri.cpp</in>
         <in>OscInterface.cpp</in>
         <in>Sessio.cpp</in>
+        <in>VariOhjain.cpp</in>
         <in>Viiva.cpp</in>
         <in>ViivanOhjain.cpp</in>
         <in>hidpen.cpp</in>
         <in>main.cpp</in>
         <in>ofApp.cpp</in>
         <in>ohjain.cpp</in>
+        <in>tiedosto.cpp</in>
         <in>timedThread.cpp</in>
       </df>
     </df>
@@ -126,17 +134,17 @@
               <pElem>../../../libs/utf8cpp/include</pElem>
               <pElem>../../../libs/utf8cpp/include/utf8</pElem>
               <pElem>../../../libs/openFrameworks</pElem>
-              <pElem>../../../libs/openFrameworks/types</pElem>
-              <pElem>../../../libs/openFrameworks/app</pElem>
-              <pElem>../../../libs/openFrameworks/3d</pElem>
-              <pElem>../../../libs/openFrameworks/communication</pElem>
               <pElem>../../../libs/openFrameworks/graphics</pElem>
-              <pElem>../../../libs/openFrameworks/video</pElem>
-              <pElem>../../../libs/openFrameworks/math</pElem>
-              <pElem>../../../libs/openFrameworks/utils</pElem>
-              <pElem>../../../libs/openFrameworks/sound</pElem>
+              <pElem>../../../libs/openFrameworks/3d</pElem>
               <pElem>../../../libs/openFrameworks/events</pElem>
+              <pElem>../../../libs/openFrameworks/sound</pElem>
+              <pElem>../../../libs/openFrameworks/communication</pElem>
+              <pElem>../../../libs/openFrameworks/utils</pElem>
+              <pElem>../../../libs/openFrameworks/types</pElem>
               <pElem>../../../libs/openFrameworks/gl</pElem>
+              <pElem>../../../libs/openFrameworks/math</pElem>
+              <pElem>../../../libs/openFrameworks/app</pElem>
+              <pElem>../../../libs/openFrameworks/video</pElem>
             </incDir>
             <preprocessorList>
               <Elem>GCC_HAS_REGEX</Elem>
@@ -271,11 +279,23 @@
         <ccTool flags="0">
         </ccTool>
       </item>
+      <item path="src/Monitori.cpp" ex="false" tool="1" flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/Nauhuri.cpp" ex="false" tool="1" flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
       <item path="src/OscInterface.cpp" ex="false" tool="1" flavor2="11">
         <ccTool flags="0">
         </ccTool>
       </item>
       <item path="src/Sessio.cpp" ex="false" tool="1" flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/VariOhjain.cpp" ex="false" tool="1" flavor2="11">
         <ccTool flags="0">
         </ccTool>
       </item>
@@ -300,6 +320,10 @@
         </ccTool>
       </item>
       <item path="src/ohjain.cpp" ex="false" tool="1" flavor2="11">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="src/tiedosto.cpp" ex="false" tool="1" flavor2="11">
         <ccTool flags="0">
         </ccTool>
       </item>

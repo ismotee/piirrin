@@ -1,53 +1,71 @@
 #include "ohjain.h"
 
 void Ohjain::setup() {
-    gui.setup();
+    GUI::setup();
     ViivanOhjain::setup(300);
     VariOhjain::setup();
     ViivanOhjain::moodi = viivaValmis;
+    Monitori::setup();
 }
 
+
 void Ohjain::update() {
+    
     ViivanOhjain::loop();
 
-        uusinViiva = ViivanOhjain::haeViiva();
-        laskeVari(uusinViiva);
-        uusinVari = haeVari();
+    //haetaan viiva ja lasketaan väri
+    uusinViiva = ViivanOhjain::haeViiva();
+    VariOhjain::laskeVari(uusinViiva);
+    uusinVari = haeVari();
     
-        
+    //asetetaan monitoriin viiva ja väri. Tämä ei vielä piirrä ruudulle; ks. Monitori::draw()
+    //TODO: milloin lopetetaan piirtäminen ja aloitetaan uusi?
+    Monitori::piirraVari(uusinVari);
+    Monitori::piirraViiva(uusinViiva);
+    
+    //kun halutaan lopettaa viiva:
+    //Monitori::tyhjenna();
+    //minkä jälkeen uusi viiva alkaa taas, kun kutsutaan piirraViiva())
 
-        //Guin updaten vois pakata natimminkin.
-        GUI_info_T info = gui.getInfo();
+    
+    GUI_info_T info = GUI::getInfo();
     if (info.connecting) {
-        gui.print("connecting to " + info.ip + " @ " + ofToString(info.senderPort) + "," + ofToString(info.receiverPort) + "...");
-        setAddress(info.ip, info.senderPort, info.receiverPort);
-        if (!connection)
-            connect();
-        if (connection)
-            gui.print("connected");
+        GUI::print("connecting to " + info.ip + " @ " + ofToString(info.senderPort) + "," + ofToString(info.receiverPort) + "...");
+       OscInterface::setAddress(info.ip, info.senderPort, info.receiverPort);
+        if (!OscInterface::connection)
+            OscInterface::connect();
+        if (OscInterface::connection)
+            GUI::print("connected");
     }
 
     if (info.disconnecting) {
-        if (connection) {
-            gui.print("disconnecting");
-            disconnect();
+        if (OscInterface::connection) {
+            GUI::print("disconnecting");
+            OscInterface::disconnect();
         } else
-            gui.print("not connected");
+            GUI::print("not connected");
     }
-
 }
 
+
 void Ohjain::draw() {
-    gui.draw();
-    ofBackground(uusinVari);
+    GUI::draw();
     ofSetColor(uusinVari.getInverted());
     ofDrawBitmapString(moodi, 20, 20);
     ofDrawBitmapString(ofToString(updateCount), 20, 40);
+    
+    //Piirretään ruudulle väri ja viiva:
+    ofSetColor(ofColor::white);
+    Monitori::draw();
 }
+
 
 void Ohjain::keyPressed(int key) {
     // gui.handleKey(key);
+    if(key == OF_KEY_TAB)
+        Monitori::show = !Monitori::show;
 }
+
 
 void Ohjain::mousePressed(int x, int y) {
     //  if (gui.show)
