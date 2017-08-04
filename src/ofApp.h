@@ -24,6 +24,6 @@ class ofApp : public ofBaseApp, public Ohjain{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
                 
-              GUI gui;  
+             // GUI gui;  
                 
 };

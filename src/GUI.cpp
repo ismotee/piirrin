@@ -176,8 +176,8 @@ void GUI::draw() {
         ofDrawBitmapString(showText, x+5, y+12);
     }
     else{
-        ofSetColor(200,200,200);
-        ofDrawBitmapString(hideText, x+5, y+12);
+        //ofSetColor(200,200,200);
+        //ofDrawBitmapString(hideText, x+5, y+12);
     }
 }
 
@@ -193,8 +193,10 @@ void GUI::handleKey(int key) {
     listenPortField.handleKey(key);
     
     //for the gui
-    if(key == hideKey)
+    if(key == hideKey) {
         show = !show;
+        cout << "hep\n";
+    }
 }
 
 

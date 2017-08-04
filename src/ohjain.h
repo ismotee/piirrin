@@ -8,7 +8,7 @@
 #include "Monitori.h"
 
 
-struct Ohjain: public OscInterface, public ViivanOhjain, public VariOhjain, public Monitori, public GUI {
+struct Ohjain: public OscInterface, public ViivanOhjain, public VariOhjain, public Monitori{
     bool showDebug;
     GUI gui;
 
