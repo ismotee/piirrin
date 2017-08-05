@@ -13,5 +13,6 @@ struct VariOhjain {
     void laskeHue(Viiva& viiva);
     void laskeSaturation(Viiva& viiva);
     void laskeBrightness(Viiva& viiva);
+    void asetaVari(ofColor col);
     ofColor haeVari();
 };

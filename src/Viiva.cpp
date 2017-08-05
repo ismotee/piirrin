@@ -9,6 +9,7 @@ void ViivanTulkinnat::muutaTulkintaa(const ViivanTulkinnat& tulkinnat, float maa
     muutaTulkinta(kiihtyvyys, tulkinnat.kiihtyvyys, maara);
     muutaTulkinta(vahvuus, tulkinnat.vahvuus, maara);
     muutaTulkinta(kohoavuus, tulkinnat.kohoavuus, maara);
+    muutaTulkinta(paineenMuutos, tulkinnat.paineenMuutos,maara);
 
 }
 
@@ -27,7 +28,9 @@ void Viiva::asetaYleisetOminaisuudet(const ViivanOminaisuudet& ominaisuudet) {
     haeUusinPiste().yleisetOminaisuudet = ominaisuudet;
 }
 
-
+void Viiva::asetaAlkuVari(ofColor col) {
+    alkuVari = col;
+}
 
 
 void Viiva::lisaaPiste(ofPoint piste, float paine) {

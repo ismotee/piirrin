@@ -96,6 +96,7 @@ void Monitori::draw() {
     ofClear(taustaVari);
     
     ofSetColor(255,255,255, pow(viivanAlfa, 0.7) * 255);
+    
     viivaFbo.draw(0,0);
     
     if(fadeOut && viivanAlfa > 0) {
@@ -121,20 +122,25 @@ void Monitori::piirraViiva(const Viiva& viiva) {
     }
     
     ViivanPiste P = viiva.haeUusinPiste();
-    float kiihtyvyys = P.tulkinnat.kiihtyvyys;
-    float vahvuus = P.tulkinnat.vahvuus;
+    float keveys = 1 - P.hetkellisetOminaisuudet.paine;
+    float hitaus = pow(P.tulkinnat.kiihtyvyys, 2);
 
     // blur: 0...4
-    pensseli::blur = (1-vahvuus) * 4;
-    if(pensseli::blur < 0.05) pensseli::blur = 0.05;
+    pensseli::blur = keveys * 8;
+    if(pensseli::blur < 0) pensseli::blur = 0;
     // koko: 0 ... MAX_KOKO/(4+2/3)
-    pensseli::koko = ( ((1-kiihtyvyys) + vahvuus )/2) * (pensseli::MAX_KOKO/(4 + 2/3) );
+    
+    pensseli::koko = hitaus * (pensseli::MAX_KOKO/(4 + 2/3)) ;
     if(pensseli::koko < 1) pensseli::koko = 1;                 
     
     viivaFbo.begin();
         ofEnableBlendMode(OF_BLENDMODE_ALPHA);
         pensseli::strokeTo(P.piste);
     viivaFbo.end();
+    
+    // jos kynä osuu tai hiirtä painetaan, z > 0
+    if(P.piste.z <= 0) 
+        pensseli::lopetaViiva();
 
 }
 

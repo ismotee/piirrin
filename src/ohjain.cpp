@@ -6,7 +6,7 @@ void Ohjain::setup() {
     VariOhjain::setup();
     ViivanOhjain::moodi = viivaValmis;
     Monitori::setup();
-    OscInterface::setAddress("127.0.0.1",9997,9998);
+    OscInterface::setAddress("127.0.0.1", 9997, 9998);
 }
 
 void Ohjain::update() {
@@ -14,8 +14,12 @@ void Ohjain::update() {
     //kun halutaan lopettaa viiva:
     //Monitori::tyhjenna();
     //minkä jälkeen uusi viiva alkaa taas, kun kutsutaan piirraViiva())
-    if (uusiViiva || (moodi == viivaValmis && tila != soittaa))
+    if (Nauhuri::uusiViiva || (moodi == viivaValmis && tila != soittaa)) {
         Monitori::tyhjenna();
+        VariOhjain::asetaVari(ViivanOhjain::viiva.alkuVari);
+    }
+    if (moodi == piirtaa && ViivanOhjain::viivaOnUusi)
+        ViivanOhjain::viiva.alkuVari = haeVari();
 
     ViivanOhjain::loop();
 
@@ -29,7 +33,7 @@ void Ohjain::update() {
     Monitori::piirraVari(uusinVari);
     Monitori::piirraViiva(uusinViiva);
 
-    if(connection && !uusinViiva.pisteet.empty())
+    if (connection && !uusinViiva.pisteet.empty())
         teeOscPakettiJaLaheta(uusinViiva);
 
 
@@ -50,8 +54,8 @@ void Ohjain::update() {
         } else
             gui.print("not connected");
     }
-    
-    
+
+
 
 }
 
@@ -117,14 +121,33 @@ void Ohjain::mousePressed(int x, int y) {
 
 void Ohjain::teeOscPakettiJaLaheta(Viiva& viiva) {
     ViivanPiste vp = viiva.haeUusinPiste();
-    
-    ofxOscMessage msg;
-    msg.setAddress("/viiva");
-    msg.addFloatArg(vp.tulkinnat.kiihtyvyys);
-    msg.addFloatArg(vp.tulkinnat.kohoavuus);
-    msg.addFloatArg(vp.tulkinnat.vahvuus);
-    msg.addFloatArg(vp.tulkinnat.paino.x);
-    msg.addFloatArg(vp.tulkinnat.paino.y);
-    msg.addFloatArg(vp.tulkinnat.paino.z);
-    OscInterface::sendMessage(msg);
+
+    ofxOscMessage tulkinnatMsg;
+    tulkinnatMsg.setAddress("/viiva/tulkinnat");
+    tulkinnatMsg.addFloatArg(vp.tulkinnat.kiihtyvyys);
+    tulkinnatMsg.addFloatArg(vp.tulkinnat.kohoavuus);
+    tulkinnatMsg.addFloatArg(vp.tulkinnat.vahvuus);
+    tulkinnatMsg.addFloatArg(vp.tulkinnat.paino.x);
+    tulkinnatMsg.addFloatArg(vp.tulkinnat.paino.y);
+    tulkinnatMsg.addFloatArg(vp.tulkinnat.paino.z);
+    OscInterface::sendMessage(tulkinnatMsg);
+
+    ofxOscMessage yleisetMsg;
+    yleisetMsg.setAddress("/viiva/yleiset");
+    yleisetMsg.addFloatArg(vp.yleisetOminaisuudet.nopeus);
+    yleisetMsg.addFloatArg(vp.yleisetOminaisuudet.paine);
+    yleisetMsg.addFloatArg(vp.yleisetOminaisuudet.suunta.x);
+    yleisetMsg.addFloatArg(vp.yleisetOminaisuudet.suunta.y);
+    yleisetMsg.addFloatArg(vp.yleisetOminaisuudet.suunta.z);
+    OscInterface::sendMessage(yleisetMsg);
+
+    ofxOscMessage hetkellisetMsg;
+    hetkellisetMsg.setAddress("/viiva/hetkelliset");
+    hetkellisetMsg.addFloatArg(vp.hetkellisetOminaisuudet.nopeus);
+    hetkellisetMsg.addFloatArg(vp.hetkellisetOminaisuudet.paine);
+    hetkellisetMsg.addFloatArg(vp.hetkellisetOminaisuudet.suunta.x);
+    hetkellisetMsg.addFloatArg(vp.hetkellisetOminaisuudet.suunta.y);
+    hetkellisetMsg.addFloatArg(vp.hetkellisetOminaisuudet.suunta.z);
+    OscInterface::sendMessage(hetkellisetMsg);
+
 }
